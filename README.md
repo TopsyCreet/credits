@@ -1,1 +1,1 @@
-# credits
+# credit
