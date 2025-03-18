@@ -33,7 +33,7 @@
     vr-mode-ui="enabled: false;"
     renderer="logarithmicDepthBuffer: true; precision: medium;"
     embedded
-    arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;"
+    arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: true;"
   >
     <!-- we use cors proxy to avoid cross-origin problems ATTENTION! you need to set up your server -->
     <a-nft
@@ -45,6 +45,7 @@
       smoothThreshold="5"
     >
       <a-entity
+      rotation="0 90 0 "
         animation-mixer="clip: *;"
         gltf-model="assets\sunflower.glb"
         scale="55 55 55"
