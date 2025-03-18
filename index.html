@@ -1,5 +1,8 @@
 <script src="https://cdn.jsdelivr.net/npm/aframe@1.6.0/dist/aframe-master.min.js"></script>
 <script src='aframe-ar-nft.js'></script>
+<script src="https://aframe.io/releases/1.7.0/aframe.min.js"></script>
+<script src="./aframe-extras.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/aframe-environment-component@1.5.0/dist/aframe-environment-component.min.js"></script>
 <style>
   .arjs-loader {
     height: 100%;
@@ -42,6 +45,7 @@
       smoothThreshold="5"
     >
       <a-entity
+        animation-mixer="clip: *;"
         gltf-model="assets\sunflower.glb"
         scale="5 5 5"
         position="150 300 -100"
