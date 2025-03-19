@@ -37,6 +37,11 @@
     embedded
     arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false; patternRatio: 0.90;"
   >
+      <!-- Preload assets -->
+      <a-assets timeout="30000">
+        <a-asset-item id="plantModel" src="assets/plants.glb"></a-asset-item>
+        <a-asset-item id="textModel" src="assets/text.glb"></a-asset-item>
+      </a-assets>
     <!-- we use cors proxy to avoid cross-origin problems ATTENTION! you need to set up your server -->
     <a-nft
       type="nft"
@@ -47,9 +52,9 @@
       smoothThreshold="5"
     >
           <a-entity
-        gltf-model="assets\plants.glb"
+        gltf-model="#plantModel"
         scale="50 50 50"
-        position="100 0 -100"
+        position="50 0 -100"
         animation-mixer="clip: *; loop: once; repetitions: 2;"
         rotation="0 0 0"
       >
@@ -60,7 +65,7 @@
       position="0 -100 -200"
         scale="150 150 150"
         animation-mixer="clip: *;"
-        gltf-model="assets\text.glb"
+        gltf-model="#textModel"
       ></a-entity>
     </a-nft>
     <!--<a-marker type='pattern' url='assets/marker.patt'>
