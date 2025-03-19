@@ -62,10 +62,34 @@
       <a-entity
         position="0 0 0"
         scale="2 2 2"
-        animation-mixer="clip: *; loop: once; repetitions: 1;"
+        play-once-stop
         gltf-model="assets\plant.glb"
       ></a-entity>
     </a-marker>
     <a-entity camera></a-entity>
   </a-scene>
 </body>
+
+<script>
+  AFRAME.registerComponent('play-once-stop', {
+    init: function () {
+      this.el.addEventListener('model-loaded', () => {
+        const model = this.el.getObject3D('mesh');
+        if (model) {
+          const mixer = new THREE.AnimationMixer(model);
+          this.el.setObject3D('animation-mixer', mixer);
+
+          const clips = model.animations;
+          const action = mixer.clipAction(clips[0]);
+          action.setLoop(THREE.LoopOnce, 1);
+          action.clampWhenFinished = true; // Stops at the last frame
+          action.play();
+
+          this.el.sceneEl.addBehavior({
+            tick: (time, delta) => mixer.update(delta / 1000),
+          });
+        }
+      });
+    },
+  });
+</script>
