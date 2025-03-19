@@ -40,7 +40,7 @@
     <!-- we use cors proxy to avoid cross-origin problems ATTENTION! you need to set up your server -->
     <a-nft
       type="nft"
-      url="assets\sunflower"
+      url="assets\track"
       smooth="true"
       smoothCount="10"
       smoothTolerance=".01"
@@ -48,16 +48,24 @@
     >
           <a-entity
 
-        animation-mixer="clip: *;"
+    
         gltf-model="assets\plants.glb"
         scale="200 200 200"
         position="100 -100 -200"
+        animation-mixer="clip: *; loop: once; repetitions: 1;"
         rotation="0 0 0"
       >
       
       </a-entity>
+      <a-entity
+      rotation="200 0 0"
+      position="100 -100 -200"
+        scale="150 150 150"
+        animation-mixer="clip: *;"
+        gltf-model="assets\text.glb"
+      ></a-entity>
     </a-nft>
-    <a-marker type='pattern' url='assets/marker.patt'>
+    <!--<a-marker type='pattern' url='assets/marker.patt'>
      
       <a-entity
         position="0 0 1"
@@ -72,7 +80,7 @@
         animation-mixer="clip: *;"
         gltf-model="assets\text.glb"
       ></a-entity>
-    </a-marker>
+    </a-marker> -->
     <a-entity camera></a-entity>
   </a-scene>
 </body>
