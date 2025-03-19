@@ -44,6 +44,7 @@
       </a-assets>
     <!-- we use cors proxy to avoid cross-origin problems ATTENTION! you need to set up your server -->
     <a-nft
+    arjs-anchor="type: nft; descriptorsUrl: assets\track; smooth: true; markerhelpers: true"
       type="nft"
       url="assets\track"
       smooth="true"
@@ -61,13 +62,14 @@
       
       </a-entity>
       <a-entity
-      rotation="0 90 0"
+      rotation="90 180 0"
       position="0 -100 -200"
         scale="150 150 150"
         animation-mixer="clip: *;"
         gltf-model="#textModel"
       ></a-entity>
     </a-nft>
+    
     <!--<a-marker type='pattern' url='assets/marker.patt'>
      
       <a-entity
