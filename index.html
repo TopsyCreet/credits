@@ -35,7 +35,7 @@
     vr-mode-ui="enabled: false"
     renderer="logarithmicDepthBuffer: true;"
     embedded
-    arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;"
+    arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false; patternRatio: 0.90;"
   >
     <!-- we use cors proxy to avoid cross-origin problems ATTENTION! you need to set up your server -->
     <a-nft
@@ -57,6 +57,14 @@
       
       </a-entity>
     </a-nft>
+    <a-marker type='pattern' url='assets/marker.patt'>
+     
+      <a-entity
+        position="0 0 0"
+        scale="1 1 1"
+        gltf-model="assets\plant.glb"
+      ></a-entity>
+    </a-marker>
     <a-entity camera></a-entity>
   </a-scene>
 </body>
