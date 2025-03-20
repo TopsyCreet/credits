@@ -27,19 +27,19 @@
       ar-hit-test="target: #objects;"
       renderer="colorManagement: true; exposure: 1; toneMapping: ACESFilmic"
       shadow="type: pcfsoft"
-      xr-mode-ui="XRMode: xr"
-      vr-mode-ui="enabled: false"
+      xr-mode-ui="XRMode: xr; enterVREnabled: false;"
+      
     >
     <a-assets timeout="30000">
       <a-asset-item id="plantModel" src="assets/plants.glb"></a-asset-item>
       
     </a-assets>
       <a-light type="directional" light="castShadow:true;" position="1 1 1" intensity="1.57" shadow-camera-automatic="#objects"></a-light>
-      <a-camera position="0 0.4 0" wasd-controls="acceleration:10;"></a-camera>
+      <a-camera position="0 0.4 0" ></a-camera>
       <a-entity id="objects" scale="0.2 0.2 0.2" position="0 0 -1" shadow>
         <a-entity
         gltf-model="#plantModel"
-        scale="5 5 5"
+        scale="10 10 10"
         position="0 0 -1"
         animation-mixer="clip: *;"
         rotation="0 0 0"
