@@ -4,10 +4,14 @@
     <meta charset="utf-8">
     <title>Hello, AR World! • A-Frame</title>
     <meta name="description" content="Hello, AR World! • A-Frame">
+    <script src="https://cdn.jsdelivr.net/npm/aframe@1.4.1/dist/aframe-master.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+    <script src='aframe-ar-nft.js'></script>
     <script src="https://aframe.io/releases/1.7.0/aframe.min.js"></script>
-    <script src="https://github.com/aframevr/aframe/blob/master/dist/aframe-master.js"></script>
     <script src="./aframe-extras.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/aframe-environment-component@1.5.0/dist/aframe-environment-component.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aframe-environment-component@1.5.0/dist/aframe-environment-component.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+
     <script>
       AFRAME.registerComponent('follow-shadow', {
         schema: {type: 'selector'},
@@ -20,6 +24,7 @@
         }
       });
     </script>
+    
   </head>
   <body>
     <a-scene
@@ -27,7 +32,7 @@
       ar-hit-test="target: #objects;"
       renderer="colorManagement: true; exposure: 1; toneMapping: ACESFilmic"
       shadow="type: pcfsoft"
-      xr-mode-ui="XRMode: xr; enterVREnabled: false;"
+      xr-mode-ui="XRMode: xr;"
       
     >
     <a-assets timeout="30000">
