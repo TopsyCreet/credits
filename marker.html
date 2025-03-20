@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Hello, AR World! • A-Frame</title>
     <meta name="description" content="Hello, AR World! • A-Frame">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <script src="https://aframe.io/releases/1.7.0/aframe.min.js"></script>
@@ -29,7 +30,7 @@
       ar-hit-test="target: #objects;"
       renderer="colorManagement: true; exposure: 1; toneMapping: ACESFilmic"
       shadow="type: pcfsoft"
-      xr-mode-ui 
+      xr-mode-ui="XRMode: xr; enterAREnabled: true;" 
       
     >
     <a-assets timeout="30000">
