@@ -43,6 +43,15 @@
         <a-asset-item id="textModel" src="assets/text.glb"></a-asset-item>
       </a-assets>
     <!-- we use cors proxy to avoid cross-origin problems ATTENTION! you need to set up your server -->
+    <a-entity
+    gltf-model="#plantModel"
+    scale="10 10 10"
+    position="0 0 -1"
+    animation-mixer="clip: *;"
+    rotation="0 0 0"
+  >
+  
+  </a-entity>
     <a-nft
     arjs-anchor="type: nft; descriptorsUrl: assets\plantrack; smooth: true; markerhelpers: true"
       type="nft"
