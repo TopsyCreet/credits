@@ -52,22 +52,27 @@
       smoothTolerance=".01"
       smoothThreshold="5"
     >
-    <a-entity
-    rotation="-90 0 0"
-    position="0 60 -500"
-      scale="50 50 50"
-      animation-mixer="clip: *;"
-      gltf-model="#textModel"
-    ></a-entity>
-          <a-entity
-        gltf-model="#plantModel"
-        scale="200 200 200"
-        position="0 0 -500"
+    <a-camera position="0 0.4 0" wasd-controls="acceleration:10;"></a-camera>
+    <a-entity id="objects" scale="0.2 0.2 0.2" position="0 0 -1" shadow>
+      <a-entity
+      rotation="-90 0 0"
+      position="0 60 -500"
+        scale="50 50 50"
         animation-mixer="clip: *;"
-        rotation="-60 0 0"
-      >
-      
-      </a-entity>
+        gltf-model="#textModel"></a-entity>
+            <a-entity
+          gltf-model="#plantModel"
+          scale="200 200 200"
+          position="0 0 -500"
+          animation-mixer="clip: *;"
+          rotation="-60 0 0"
+        > 
+        </a-entity>
+      <a-box position="-1 0.5 1" rotation="0 45 0" color="#4CC3D9"></a-box>
+      <a-sphere position="0 1.25 -1" radius="1.25" color="#EF2D5E"></a-sphere>
+      <a-cylinder position="1 0.75 1" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
+    </a-entity>
+   
     
     </a-nft>
     
@@ -87,7 +92,7 @@
         gltf-model="assets\text.glb"
       ></a-entity>
     </a-marker> -->
-    <a-camera position="0 0.4 0" wasd-controls="acceleration:10;"></a-camera>
+   
   </a-scene>
 </body>
 
