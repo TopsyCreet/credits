@@ -1,57 +1,75 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Hello, AR World! • A-Frame</title>
-    <meta name="description" content="Hello, AR World! • A-Frame">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <script src="https://aframe.io/releases/1.7.0/aframe.min.js"></script>
-    <script src="https://github.com/aframevr/aframe/blob/master/dist/aframe-master.js"></script>
-    <script src="./aframe-extras.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/aframe@1.4.1/dist/aframe-master.min.js"></script>
+<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+<script src='aframe-ar-nft.js'></script>
+<script src="https://aframe.io/releases/1.7.0/aframe.min.js"></script>
+<script src="./aframe-extras.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/aframe-environment-component@1.5.0/dist/aframe-environment-component.min.js"></script>
-    <script>
-      AFRAME.registerComponent('follow-shadow', {
-        schema: {type: 'selector'},
-        init() {this.el.object3D.renderOrder = -1;},
-        tick() {
-          if (this.data) {
-            this.el.object3D.position.copy(this.data.object3D.position);
-            this.el.object3D.position.y-=0.001; // stop z-fighting
-          }
-        }
-      });
-    </script>
-  </head>
-  <body>
-    <a-scene
-      reflection="directionalLight: a-light[type=directional]"
-      ar-hit-test="target: #objects;"
-      renderer="colorManagement: true; exposure: 1; toneMapping: ACESFilmic"
-      shadow="type: pcfsoft"
-      xr-mode-ui="XRMode: xr; enterAREnabled: true;" 
-      
-    >
-    <a-assets timeout="30000">
-      <a-asset-item id="plantModel" src="assets/plants.glb"></a-asset-item>
-      
-    </a-assets>
-      <a-light type="directional" light="castShadow:true;" position="1 1 1" intensity="1.57" shadow-camera-automatic="#objects"></a-light>
-      <a-camera position="0 0.4 0" ></a-camera>
-      <a-entity id="objects" scale="0.2 0.2 0.2" position="0 0 -1" shadow>
-        <a-entity
-        gltf-model="#plantModel"
-        scale="10 10 10"
-        position="0 0 -1"
+<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+<style>
+  .arjs-loader {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .arjs-loader div {
+    text-align: center;
+    font-size: 1.25em;
+    color: white;
+  }
+</style>
+
+<body style="margin : 0px; overflow: hidden;">
+  <!-- minimal loader shown until image descriptors are loaded -->
+  <div class="arjs-loader">
+    <div>Loading, please wait...</div>
+  </div>
+  <a-scene
+    vr-mode-ui="enabled: false"
+    renderer="logarithmicDepthBuffer: true;"
+    embedded
+    arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false; patternRatio: 0.90;"
+  >
+      <!-- Preload assets -->
+      <a-assets timeout="30000">
+        <a-asset-item id="plantModel" src="assets/plants.glb"></a-asset-item>
+        <a-asset-item id="textModel" src="assets/text.glb"></a-asset-item>
+      </a-assets>
+    <!-- we use cors proxy to avoid cross-origin problems ATTENTION! you need to set up your server -->
+    <a-entity
+    gltf-model="#plantModel"
+    scale="10 10 10"
+    position="0 -5 -15"
+    animation-mixer="clip: *;"
+    rotation="0 0 0"
+  >
+  
+  </a-entity>
+   
+    <!--<a-marker type='pattern' url='assets/marker.patt'>
+     
+      <a-entity
+        position="0 0 1"
+        scale="2 2 2"
+        animation-mixer="clip: *; loop: once; repetitions: 1;"
+        gltf-model="assets\plants.glb"
+      ></a-entity>
+      <a-entity
+      rotation="200 0 0"
+        position="1 0 1.2"
+        scale="1.5 1.5 1.5"
         animation-mixer="clip: *;"
-        rotation="0 0 0"
-      >
-      
-      </a-entity>
-      </a-entity>
-      <a-plane follow-shadow="#objects" material="shader:shadow" shadow="cast:false;" rotation="-90 0 0" width="2" height="2"></a-plane>
-      <a-sky color="#ECECEC" hide-on-enter-ar></a-sky>
-    </a-scene>
-  </body>
-</html>
+        gltf-model="assets\text.glb"
+      ></a-entity>
+    </a-marker> -->
+    <a-camera position="0 0.4 0" wasd-controls="acceleration:10;"></a-camera>
+  </a-scene>
+</body>
+
